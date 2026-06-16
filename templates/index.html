@@ -2,21 +2,43 @@
 <html>
 <head>
     <title>EcoSmart AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-    <h1>EcoSmart AI</h1>
-    <h2>Carbon Footprint Calculator</h2>
+
+<div class="container">
+
+    <h1>🌱 EcoSmart AI</h1>
+    <h2>Carbon Footprint Awareness Platform</h2>
 
     <form method="POST">
-        <label>Travel Distance (KM per day)</label><br>
-        <input type="number" name="distance" required><br><br>
 
-        <label>Electricity Usage (Units per month)</label><br>
-        <input type="number" name="electricity" required><br><br>
+        <label>Vehicle Type</label>
+        <select name="vehicle" required>
+            <option value="Bike">Bike</option>
+            <option value="Car">Car</option>
+            <option value="Bus">Bus</option>
+        </select>
 
-        <button type="submit">Calculate</button>
+        <label>Travel Distance (KM per day)</label>
+        <input type="number" name="distance" required>
+
+        <label>Electricity Usage (Units per month)</label>
+        <input type="number" name="electricity" required>
+
+        <button type="submit">Calculate Carbon Footprint</button>
+
     </form>
 
-    <h3>{{ result }}</h3>
+    {% if result %}
+    <div class="result">
+        <h3>{{ result }}</h3>
+        <p>{{ suggestion }}</p>
+    </div>
+    {% endif %}
+
+</div>
+
 </body>
 </html>
