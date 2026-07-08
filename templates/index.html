@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "base.html" %}
 {% block title %}Fan Portal — StadiumPulse AI{% endblock %}
 {% block content %}
@@ -66,3 +67,49 @@
 </section>
 
 {% endblock %}
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EcoSmart AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🌱 EcoSmart AI</h1>
+    <h2>Carbon Footprint Awareness Platform</h2>
+
+    <form method="POST">
+
+        <label>Vehicle Type</label>
+        <select name="vehicle" required>
+            <option value="Bike">Bike</option>
+            <option value="Car">Car</option>
+            <option value="Bus">Bus</option>
+        </select>
+
+        <label>Travel Distance (KM per day)</label>
+        <input type="number" name="distance" required>
+
+        <label>Electricity Usage (Units per month)</label>
+        <input type="number" name="electricity" required>
+
+        <button type="submit">Calculate Carbon Footprint</button>
+
+    </form>
+
+    {% if result %}
+    <div class="result">
+        <h3>{{ result }}</h3>
+        <p>{{ suggestion }}</p>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
+>>>>>>> 24a282f31eb2a52b799ed1344fe1e221ea98b535

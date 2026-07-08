@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # StadiumPulse AI
 
 **PromptWars — [Challenge 4] Smart Stadiums & Tournament Operations — FIFA World Cup 2026**
@@ -84,3 +85,35 @@ Visit `http://localhost:5000` (Fan Portal) and `http://localhost:5000/ops` (Comm
 - Push notifications to fans in a zone that's about to go critical
 - Voice input for the concierge (hands-free at the gate)
 - Post-match: AI-generated ops retro from the full incident + crowd history
+=======
+# EcoSmart AI
+
+AI-powered Carbon Footprint Awareness Platform.
+
+## Features
+
+- Carbon footprint calculator
+- Vehicle type selection
+- Travel distance tracking
+- Electricity usage tracking
+- Carbon impact classification
+- Personalized recommendations
+- Input validation
+
+## Tech Stack
+
+- Python
+- Flask
+- HTML
+- CSS
+
+## Testing
+
+Basic Flask test cases are included in test_app.py
+
+## Run Locally
+
+pip install flask
+
+python app.py
+>>>>>>> 24a282f31eb2a52b799ed1344fe1e221ea98b535

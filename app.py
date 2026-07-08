@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """
 StadiumPulse AI — GenAI-enabled Smart Stadium & Tournament Operations platform
 Built for PromptWars [Challenge 4] Smart Stadiums & Tournament Operations — FIFA World Cup 2026
@@ -278,3 +279,71 @@ def add_security_headers(response):
     response.headers["X-Frame-Options"]="DENY"
     response.headers["Referrer-Policy"]="strict-origin-when-cross-origin"
     return response
+=======
+# EcoSmart AI - Carbon Footprint Awareness Platform
+
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+@app.route('/', methods=['GET', 'POST'])
+def home():
+
+    result = ""
+    suggestion = ""
+
+    if request.method == 'POST':
+
+        try:
+            vehicle = request.form['vehicle']
+            distance = float(request.form['distance'])
+            electricity = float(request.form['electricity'])
+
+            # Input validation
+            if distance < 0 or electricity < 0:
+                result = "Please enter positive values only."
+                return render_template(
+                    'index.html',
+                    result=result,
+                    suggestion=""
+                )
+
+            factors = {
+                "Bike": 0.10,
+                "Car": 0.21,
+                "Bus": 0.08
+            }
+
+            carbon_score = (
+                distance * factors[vehicle]
+            ) + (
+                electricity * 0.5
+            )
+
+            if carbon_score < 50:
+                impact = "Low Impact 🌱"
+                suggestion = "Great job! Keep using eco-friendly habits."
+
+            elif carbon_score < 100:
+                impact = "Moderate Impact ⚠️"
+                suggestion = "Consider public transport and reducing electricity usage."
+
+            else:
+                impact = "High Impact 🔥"
+                suggestion = "Reduce vehicle usage and switch to renewable energy sources."
+
+            result = f"Carbon Score: {carbon_score:.2f} kg CO2 ({impact})"
+
+        except ValueError:
+            result = "Invalid input. Please enter numbers only."
+            suggestion = ""
+
+    return render_template(
+        'index.html',
+        result=result,
+        suggestion=suggestion
+    )
+
+if __name__ == '__main__':
+    app.run(debug=True)
+>>>>>>> 24a282f31eb2a52b799ed1344fe1e221ea98b535
