@@ -1,51 +1,38 @@
 {% extends "base.html" %}
 {% block title %}Command View — StadiumPulse AI{% endblock %}
 {% block content %}
-
-<section class="hero hero--ops">
-  <p class="eyebrow">Shift supervisor view</p>
-  <h1>Operational intelligence,<br>refreshed live.</h1>
-  <p class="hero__sub">AI reads the crowd feed and incident log so your team acts on the
-  one thing that matters right now.</p>
-</section>
-
 <section class="grid grid--ops">
+<div class="card">
+<h2>Zone Occupancy</h2>
+<table class="zone-table">
+<caption>Current Stadium Zone Occupancy</caption>
+<thead><tr><th>Zone</th><th>Occupancy</th><th>Count</th><th>Wait</th><th>Status</th></tr></thead>
+<tbody id="zoneTableBody"></tbody>
+</table>
+</div>
 
-  <div class="card card--brief">
-    <div class="card__head">
-      <h2>AI Briefing</h2>
-      <button id="refreshBrief" class="btn-ghost">Refresh</button>
-    </div>
-    <p id="briefText" class="brief-text">Generating briefing…</p>
-  </div>
+<div class="card">
+<h2>Log Incident</h2>
+<form id="incidentForm">
+<label for="incZone">Incident Zone</label>
+<select id="incZone" name="incZone" aria-required="true"></select>
 
-  <div class="card card--table">
-    <div class="card__head"><h2>Zone Occupancy</h2></div>
-    <table class="zone-table">
-      <thead>
-        <tr><th>Zone</th><th>Occupancy</th><th>Count</th><th>Wait</th><th>Status</th></tr>
-      </thead>
-      <tbody id="zoneTableBody"></tbody>
-    </table>
-  </div>
+<label for="incType">Incident Type</label>
+<select id="incType">
+<option>Overcrowding</option>
+<option>Medical</option>
+<option>Lost child</option>
+<option>Security</option>
+<option>Facility</option>
+</select>
 
-  <div class="card card--incident">
-    <div class="card__head"><h2>Log Incident</h2></div>
-    <form id="incidentForm" class="incident-form">
-      <select id="incZone"></select>
-      <select id="incType">
-        <option>Overcrowding</option>
-        <option>Medical</option>
-        <option>Lost child</option>
-        <option>Security</option>
-        <option>Facility</option>
-      </select>
-      <input id="incNote" type="text" placeholder="Short note (optional)">
-      <button type="submit">Log</button>
-    </form>
-    <ul id="incidentLog" class="incident-log"></ul>
-  </div>
+<label for="incNote">Incident Note</label>
+<input id="incNote" type="text" placeholder="Short note (optional)">
 
+<button type="submit">Log</button>
+</form>
+
+<ul id="incidentLog" class="incident-log" aria-live="polite"></ul>
+</div>
 </section>
-
 {% endblock %}

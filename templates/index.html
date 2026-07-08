@@ -1,115 +1,24 @@
-<<<<<<< HEAD
 {% extends "base.html" %}
 {% block title %}Fan Portal — StadiumPulse AI{% endblock %}
 {% block content %}
-
 <section class="hero">
-  <p class="eyebrow">Matchday concierge</p>
-  <h1>Ask in any language.<br>Get there in four steps.</h1>
-  <p class="hero__sub">One assistant for gates, seats, transport, accessibility and amenities —
-  live crowd data baked into every answer.</p>
+<h1>Ask in any language.<br>Get there in four steps.</h1>
 </section>
-
 <section class="grid">
-
-  <div class="card card--chat">
-    <div class="card__head">
-      <h2>AI Concierge</h2>
-      <select id="chatLang" class="lang-select">
-        <option value="auto-detect the language and reply in the same language">Auto-detect</option>
-        <option value="English">English</option>
-        <option value="Spanish">Español</option>
-        <option value="Portuguese">Português</option>
-        <option value="French">Français</option>
-        <option value="Arabic">العربية</option>
-        <option value="Hindi">हिन्दी</option>
-      </select>
-    </div>
-    <div id="chatLog" class="chat-log">
-      <div class="msg msg--bot">Hi! Ask me about gates, seating, transport, accessibility, or amenities.</div>
-    </div>
-    <form id="chatForm" class="chat-form">
-      <input id="chatInput" type="text" placeholder="e.g. Where's the nearest accessible entrance?" autocomplete="off" required>
-      <button type="submit">Send</button>
-    </form>
-  </div>
-
-  <div class="card card--nav">
-    <div class="card__head"><h2>Wayfinder</h2></div>
-    <form id="navForm" class="nav-form">
-      <label>From
-        <input id="navOrigin" type="text" value="Main entrance" required>
-      </label>
-      <label>To
-        <input id="navDest" type="text" placeholder="e.g. Section 114" required>
-      </label>
-      <label class="checkbox">
-        <input id="navAccessible" type="checkbox"> Step-free route
-      </label>
-      <button type="submit">Get directions</button>
-    </form>
-    <ol id="navResult" class="nav-result"></ol>
-  </div>
-
-  <div class="card card--zones">
-    <div class="card__head">
-      <h2>Live Zone Status</h2>
-      <span class="muted">updates every 6s</span>
-    </div>
-    <div id="zoneList" class="zone-list"></div>
-  </div>
-
-  <div class="card card--tip">
-    <div class="card__head"><h2>Sustainability nudge</h2></div>
-    <p id="sustainTip" class="tip-text">Loading…</p>
-  </div>
-
-</section>
-
-{% endblock %}
-=======
-<!DOCTYPE html>
-<html>
-<head>
-    <title>EcoSmart AI</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-
-<body>
-
-<div class="container">
-
-    <h1>🌱 EcoSmart AI</h1>
-    <h2>Carbon Footprint Awareness Platform</h2>
-
-    <form method="POST">
-
-        <label>Vehicle Type</label>
-        <select name="vehicle" required>
-            <option value="Bike">Bike</option>
-            <option value="Car">Car</option>
-            <option value="Bus">Bus</option>
-        </select>
-
-        <label>Travel Distance (KM per day)</label>
-        <input type="number" name="distance" required>
-
-        <label>Electricity Usage (Units per month)</label>
-        <input type="number" name="electricity" required>
-
-        <button type="submit">Calculate Carbon Footprint</button>
-
-    </form>
-
-    {% if result %}
-    <div class="result">
-        <h3>{{ result }}</h3>
-        <p>{{ suggestion }}</p>
-    </div>
-    {% endif %}
-
+<div class="card">
+<h2>AI Concierge</h2>
+<div id="chatLog" class="chat-log" role="log" aria-live="polite" aria-relevant="additions">
+<div class="msg msg--bot">Hi! Ask me about gates, seating, transport and accessibility.</div>
+</div>
+<form id="chatForm">
+<input id="chatInput" type="text" aria-label="Ask the AI concierge" required>
+<button type="submit">Send</button>
+</form>
 </div>
 
-</body>
-</html>
->>>>>>> 24a282f31eb2a52b799ed1344fe1e221ea98b535
+<div class="card">
+<h2>Live Zone Status</h2>
+<div id="zoneList" class="zone-list" aria-live="polite"></div>
+</div>
+</section>
+{% endblock %}
