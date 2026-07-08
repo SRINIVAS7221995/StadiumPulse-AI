@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Fan Portal — StadiumPulse AI{% endblock %}
+{% block content %}
+
+<section class="hero">
+  <p class="eyebrow">Matchday concierge</p>
+  <h1>Ask in any language.<br>Get there in four steps.</h1>
+  <p class="hero__sub">One assistant for gates, seats, transport, accessibility and amenities —
+  live crowd data baked into every answer.</p>
+</section>
+
+<section class="grid">
+
+  <div class="card card--chat">
+    <div class="card__head">
+      <h2>AI Concierge</h2>
+      <select id="chatLang" class="lang-select">
+        <option value="auto-detect the language and reply in the same language">Auto-detect</option>
+        <option value="English">English</option>
+        <option value="Spanish">Español</option>
+        <option value="Portuguese">Português</option>
+        <option value="French">Français</option>
+        <option value="Arabic">العربية</option>
+        <option value="Hindi">हिन्दी</option>
+      </select>
+    </div>
+    <div id="chatLog" class="chat-log">
+      <div class="msg msg--bot">Hi! Ask me about gates, seating, transport, accessibility, or amenities.</div>
+    </div>
+    <form id="chatForm" class="chat-form">
+      <input id="chatInput" type="text" placeholder="e.g. Where's the nearest accessible entrance?" autocomplete="off" required>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <div class="card card--nav">
+    <div class="card__head"><h2>Wayfinder</h2></div>
+    <form id="navForm" class="nav-form">
+      <label>From
+        <input id="navOrigin" type="text" value="Main entrance" required>
+      </label>
+      <label>To
+        <input id="navDest" type="text" placeholder="e.g. Section 114" required>
+      </label>
+      <label class="checkbox">
+        <input id="navAccessible" type="checkbox"> Step-free route
+      </label>
+      <button type="submit">Get directions</button>
+    </form>
+    <ol id="navResult" class="nav-result"></ol>
+  </div>
+
+  <div class="card card--zones">
+    <div class="card__head">
+      <h2>Live Zone Status</h2>
+      <span class="muted">updates every 6s</span>
+    </div>
+    <div id="zoneList" class="zone-list"></div>
+  </div>
+
+  <div class="card card--tip">
+    <div class="card__head"><h2>Sustainability nudge</h2></div>
+    <p id="sustainTip" class="tip-text">Loading…</p>
+  </div>
+
+</section>
+
+{% endblock %}
