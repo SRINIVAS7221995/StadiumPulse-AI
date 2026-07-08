@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 """
 StadiumPulse AI — GenAI-enabled Smart Stadium & Tournament Operations platform
 Built for PromptWars [Challenge 4] Smart Stadiums & Tournament Operations — FIFA World Cup 2026
@@ -279,7 +278,6 @@ def add_security_headers(response):
     response.headers["X-Frame-Options"]="DENY"
     response.headers["Referrer-Policy"]="strict-origin-when-cross-origin"
     return response
-=======
 # EcoSmart AI - Carbon Footprint Awareness Platform
 
 from flask import Flask, render_template, request
@@ -346,4 +344,4 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
->>>>>>> 24a282f31eb2a52b799ed1344fe1e221ea98b535
+
